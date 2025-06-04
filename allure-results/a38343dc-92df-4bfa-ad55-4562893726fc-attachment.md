@@ -1,0 +1,180 @@
+# Test info
+
+- Name: config screenshot
+- Location: C:\Users\HARIKATHIK V\Desktop\sdet-playwright\tests\screenshot2.spec.js:3:5
+
+# Error details
+
+```
+Error: elementHandle.textContent: Execution context was destroyed, most likely because of a navigation
+Call log:
+  - waiting for locator(':scope')
+
+    at C:\Users\HARIKATHIK V\Desktop\sdet-playwright\tests\screenshot2.spec.js:19:53
+```
+
+# Page snapshot
+
+```yaml
+- navigation:
+  - link "PRODUCT STORE":
+    - /url: index.html
+    - img
+    - text: PRODUCT STORE
+  - list:
+    - listitem:
+      - link "Home (current)":
+        - /url: index.html
+    - listitem:
+      - link "Contact":
+        - /url: "#"
+    - listitem:
+      - link "About us":
+        - /url: "#"
+    - listitem:
+      - link "Cart":
+        - /url: cart.html
+    - listitem
+    - listitem:
+      - link "Log out":
+        - /url: "#"
+    - listitem:
+      - link "Welcome pavanol":
+        - /url: "#"
+    - listitem
+  - list:
+    - listitem
+    - listitem
+    - listitem
+  - img "First slide"
+  - button "Previous"
+  - button "Next"
+- link "CATEGORIES":
+  - /url: ""
+- link "Phones":
+  - /url: "#"
+- link "Laptops":
+  - /url: "#"
+- link "Monitors":
+  - /url: "#"
+- link:
+  - /url: prod.html?idp_=1
+- heading "Samsung galaxy s6" [level=4]:
+  - link "Samsung galaxy s6":
+    - /url: prod.html?idp_=1
+- heading "$360" [level=5]
+- paragraph: The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420 processor and it comes with 3GB of RAM. The phone packs 32GB of internal storage cannot be expanded.
+- link:
+  - /url: prod.html?idp_=2
+- heading "Nokia lumia 1520" [level=4]:
+  - link "Nokia lumia 1520":
+    - /url: prod.html?idp_=2
+- heading "$820" [level=5]
+- paragraph: The Nokia Lumia 1520 is powered by 2.2GHz quad-core Qualcomm Snapdragon 800 processor and it comes with 2GB of RAM.
+- link:
+  - /url: prod.html?idp_=3
+- heading "Nexus 6" [level=4]:
+  - link "Nexus 6":
+    - /url: prod.html?idp_=3
+- heading "$650" [level=5]
+- paragraph: The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM.
+- link:
+  - /url: prod.html?idp_=4
+- heading "Samsung galaxy s7" [level=4]:
+  - link "Samsung galaxy s7":
+    - /url: prod.html?idp_=4
+- heading "$800" [level=5]
+- paragraph: The Samsung Galaxy S7 is powered by 1.6GHz octa-core it comes with 4GB of RAM. The phone packs 32GB of internal storage that can be expanded up to 200GB via a microSD card.
+- link:
+  - /url: prod.html?idp_=5
+- heading "Iphone 6 32gb" [level=4]:
+  - link "Iphone 6 32gb":
+    - /url: prod.html?idp_=5
+- heading "$790" [level=5]
+- paragraph: It comes with 1GB of RAM. The phone packs 16GB of internal storage cannot be expanded. As far as the cameras are concerned, the Apple iPhone 6 packs a 8-megapixel primary camera on the rear and a 1.2-megapixel front shooter for selfies.
+- link:
+  - /url: prod.html?idp_=6
+- heading "Sony xperia z5" [level=4]:
+  - link "Sony xperia z5":
+    - /url: prod.html?idp_=6
+- heading "$320" [level=5]
+- paragraph: Sony Xperia Z5 Dual smartphone was launched in September 2015. The phone comes with a 5.20-inch touchscreen display with a resolution of 1080 pixels by 1920 pixels at a PPI of 424 pixels per inch.
+- link:
+  - /url: prod.html?idp_=7
+- heading "HTC One M9" [level=4]:
+  - link "HTC One M9":
+    - /url: prod.html?idp_=7
+- heading "$700" [level=5]
+- paragraph: The HTC One M9 is powered by 1.5GHz octa-core Qualcomm Snapdragon 810 processor and it comes with 3GB of RAM. The phone packs 32GB of internal storage that can be expanded up to 128GB via a microSD card.
+- link:
+  - /url: prod.html?idp_=8
+- heading "Sony vaio i5" [level=4]:
+  - link "Sony vaio i5":
+    - /url: prod.html?idp_=8
+- heading "$790" [level=5]
+- paragraph: Sony is so confident that the VAIO S is a superior ultraportable laptop that the company proudly compares the notebook to Apple's 13-inch MacBook Pro. And in a lot of ways this notebook is better, thanks to a lighter weight.
+- link:
+  - /url: prod.html?idp_=9
+- heading "Sony vaio i7" [level=4]:
+  - link "Sony vaio i7":
+    - /url: prod.html?idp_=9
+- heading "$790" [level=5]
+- paragraph: REVIEW Sony is so confident that the VAIO S is a superior ultraportable laptop that the company proudly compares the notebook to Apple's 13-inch MacBook Pro. And in a lot of ways this notebook is better, thanks to a lighter weight, higher-resolution display, more storage space, and a Blu-ray drive.
+- list:
+  - listitem:
+    - button "Previous"
+  - listitem:
+    - button "Next"
+- heading "About Us" [level=4]
+- paragraph: We believe performance needs to be validated at every stage of the software development cycle and our open source compatible, massively scalable platform makes that a reality.
+- heading "Get in Touch" [level=4]
+- paragraph: "Address: 2390 El Camino Real"
+- paragraph: "Phone: +440 123456"
+- paragraph: "Email: demo@blazemeter.com"
+- heading "PRODUCT STORE" [level=4]:
+  - img
+  - text: PRODUCT STORE
+- contentinfo:
+  - paragraph: Copyright © Product Store 2017
+```
+
+# Test source
+
+```ts
+   1 | import { test , expect } from '@playwright/test';
+   2 |
+   3 | test('config screenshot', async ({page}) => {
+   4 |
+   5 |     await page.goto('https://www.demoblaze.com/index.html')
+   6 |
+   7 |     // /login
+   8 |     await page.locator('#login2').click()
+   9 |     await page.locator('#loginusername').fill('pavanol')
+  10 |     await page.locator('#loginpassword').fill('test@123')
+  11 |     await page.locator('//button[@onclick="logIn()"]').click()
+  12 |
+  13 |     const productlists = await page.$$('//a[@class="hrefch"]');
+  14 |
+  15 |         for(const products of productlists){
+  16 |             console.log(await products.textContent());
+  17 |             await page.waitForTimeout(2000);
+  18 |
+> 19 |             if ('Sony xperia z5' === await products.textContent()) {
+     |                                                     ^ Error: elementHandle.textContent: Execution context was destroyed, most likely because of a navigation
+  20 |
+  21 |                 await products.click()
+  22 |                 break;
+  23 |             }
+  24 |         }
+  25 |
+  26 |         await page.on('dialog', async dialog=>{
+  27 |             expect(dialog.type()).toContain('alert')
+  28 |             expect(dialog.message()).toContain('I am an alert box!')
+  29 |             if (dialog.message().inclides('Product added.')) {
+  30 |                 await dialog.accept();
+  31 |             }
+  32 |         })
+  33 |
+  34 |         await page.locator('//a[@class="btn btn-success btn-lg"]').click();
+  35 | })
+```

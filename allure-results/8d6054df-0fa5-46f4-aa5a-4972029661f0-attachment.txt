@@ -1,0 +1,6 @@
+value is Web Development
+value is jQuery
+value is Bootstrap
+value is HTML
+value is CSS
+value is Angular
