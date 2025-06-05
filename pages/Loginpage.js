@@ -2,9 +2,9 @@ exports.Loginpage = class Loginpage {
 
     constructor(page){
         this.page = page;
-        this.loginlink = '#login2';
-        this.usernameinput = '#loginusername';
-        this.passwordinput = '#loginpassword';
+        this.loginlink = '//a[@data-target="#logInModal"]';
+        this.usernameinput = '//input[@id="loginusername"]';
+        this.passwordinput = '//input[@id="loginpassword"]';
         this.loginbutton = '//button[@onclick="logIn()"]';
     }
 
@@ -16,8 +16,8 @@ exports.Loginpage = class Loginpage {
     async logindtl(username , password) {
 
         await this.page.locator(this.loginlink).click();
-        await this.page.type(this.usernameinput , username);
-        await this.page.type(this.passwordinput , password);
+        await this.page.fill(this.usernameinput , username);
+        await this.page.fill(this.passwordinput , password);
         await this.page.locator(this.loginbutton).click();
     }
 }

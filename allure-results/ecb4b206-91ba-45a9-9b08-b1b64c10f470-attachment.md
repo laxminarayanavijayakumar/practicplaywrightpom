@@ -1,0 +1,72 @@
+# Test info
+
+- Name: pom login
+- Location: C:\Users\HARIKATHIK V\Desktop\sdet-playwright\tests\pomtest.spec.js:6:1
+
+# Error details
+
+```
+Error: elementHandle.click: Target page, context or browser has been closed
+Call log:
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div tabindex="-1" role="dialog" id="logInModal" class="modal fade show" aria-labelledby="logInModalLabel">…</div> intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div tabindex="-1" role="dialog" id="logInModal" class="modal fade show" aria-labelledby="logInModalLabel">…</div> intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    8 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div tabindex="-1" role="dialog" id="logInModal" class="modal fade show" aria-labelledby="logInModalLabel">…</div> intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+
+    at Homepage.addproducttocart (C:\Users\HARIKATHIK V\Desktop\sdet-playwright\pages\Homepage.js:15:32)
+    at C:\Users\HARIKATHIK V\Desktop\sdet-playwright\tests\pomtest.spec.js:17:5
+```
+
+# Test source
+
+```ts
+   1 | exports.Homepage = class Homepage{
+   2 |
+   3 |     constructor(page){
+   4 |         this.page = page;
+   5 |         this.productlist = '//a[@class="hrefch"]';
+   6 |         this.addtocartbton = '//a[@class="btn btn-success btn-lg"]';
+   7 |         this.cart = '//a[@id="cartur"]';
+   8 |     }
+   9 |
+  10 |     async addproducttocart(productnames) {
+  11 |         const productlists = await this.page.$$(this.productlist);
+  12 |         for(const products of productlists){
+  13 |             console.log(await products.textContent());
+  14 |             if(productnames === await products.textContent()) {
+> 15 |                 await products.click()
+     |                                ^ Error: elementHandle.click: Target page, context or browser has been closed
+  16 |                 break;
+  17 |             }
+  18 |         }
+  19 |         await this.page.on('dialog', async dialog=>{
+  20 |             if(dialog.message().includes('Product added.')) {
+  21 |                 await dialog.accept();
+  22 |             }
+  23 |         })
+  24 |         await this.page.locator(this.addtocartbton).click();
+  25 |     }
+  26 |     
+  27 |     async gotocart() {
+  28 |         await this.page.locator(this.cart).click();        
+  29 |     }
+  30 | }
+```

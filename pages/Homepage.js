@@ -4,13 +4,12 @@ exports.Homepage = class Homepage{
         this.page = page;
         this.productlist = '//a[@class="hrefch"]';
         this.addtocartbton = '//a[@class="btn btn-success btn-lg"]';
-        this.cart = '#cartur';
+        this.cart = '//a[@id="cartur"]';
     }
 
     async addproducttocart(productnames) {
         const productlists = await this.page.$$(this.productlist);
         for(const products of productlists){
-            console.log(await products.textContent());
             if(productnames === await products.textContent()) {
                 await products.click()
                 break;
