@@ -5,6 +5,7 @@ test('handle broken image', async ({page}) => {
     // await page.goto('');
 
     console.log('Broken link image')
+    console.log("assess")
     console.log('print:','image')
     
 })
