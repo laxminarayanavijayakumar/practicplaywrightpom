@@ -1,14 +1,16 @@
 [
     {
-        "usern":"praveen",
-        "passw":"test@123"
+        "username":"balaji",
+        "password":"test@123"
     },
     {
-        "usern":"praveen",
-        "passw":"test@123"
+        "username":"laxminarayana",
+        "password":"test@123"
     },
     {
-        "usern":"praveen",
-        "passw":"test@123"
+        "username":"pavanol",
+        "password":"test@123"
     }
 ]
+
+   

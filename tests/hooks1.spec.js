@@ -1,19 +1,23 @@
 const{test , expect} = require('@playwright/test');
+import dataArray from '../TestData/data.json';
 
 let page;
+dataArray.forEach((data)=>{
 
-test.beforeAll(async ({browser}) => {
+    test.beforeAll(`Login${data.username}`,async ({browser}) => {
 
     page = await browser.newPage();
     await page.goto('https://www.demoblaze.com/');
 
     // /login
     await page.locator('#login2').click()
-    await page.locator('#loginusername').fill('pavanol')
-    await page.locator('#loginpassword').fill('test@123')
+    await page.locator('#loginusername').fill(data.username)
+    await page.locator('#loginpassword').fill(data.password)
     await page.locator('//button[@onclick="logIn()"]').click()
     
 })
+})
+
 
 test('list of product hooks concept', async () => {
 
